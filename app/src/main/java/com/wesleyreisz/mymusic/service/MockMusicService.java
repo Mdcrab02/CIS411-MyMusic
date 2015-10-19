@@ -23,7 +23,11 @@ public class MockMusicService {
         songs.add(new Song("Drink A Beer","Luke Bryan","Crash My Party",getDate(2013, 11, 11)));
         songs.add(new Song("Burn","Ellie Goulding ","Halcyon",getDate(2013, 03, 13)));
         songs.add(new Song("Story Of My Life","One Direction ","Story Of My Life",getDate(2013, 11, 25)));
+        //really?  The only direction I'm goin is outta here
         songs.add(new Song("Let Her Go","Passenger","All the Little Lights",getDate(2012, 7, 12)));
+
+        //let's try to add one?
+        songs.add(new Song("Days to Come","Seven Lions","Days to Come EP",getDate(2014, 4, 3)));
     }
 
     public List<Song> findAll(){

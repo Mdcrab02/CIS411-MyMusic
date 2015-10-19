@@ -4,6 +4,13 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
+
+import com.wesleyreisz.mymusic.model.Song;
+import com.wesleyreisz.mymusic.service.MockMusicService;
+
+import java.util.List;
+
 
 
 public class MyMusicActivity extends Activity {
@@ -12,6 +19,16 @@ public class MyMusicActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_music);
+
+        ListView listView = (ListView) findViewById(R.id.listViewSong);
+        List<Song> songs = new MockMusicService().findAll();
+
+        SongAdapter songAdapter = new SongAdapter(this, R.layout.listview_frag,songs);
+
+        listView.setAdapter(songAdapter);
+
+        //if i understand the assignment correctly this is good, otherwise there needs to be a button
+        //or some shit here to have an activity that brings up the list
     }
 
 
