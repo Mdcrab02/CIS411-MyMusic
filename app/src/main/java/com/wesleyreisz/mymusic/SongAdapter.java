@@ -18,26 +18,26 @@ import java.util.List;
 public class SongAdapter extends ArrayAdapter<Song> {
 
     private SimpleDateFormat df = new SimpleDateFormat("MMM d, yyy (EEE)");
-    private Context mContext;
-    private List<Song> mEntries;
+    private Context leContext;
+
+    private List<Song> listSongs;
 
     //found this on the internet, see if it works.
-
     public SongAdapter(Context context, int textViewResourceId, List<Song> entries) {
         super(context, textViewResourceId, entries);
 
-        mContext = context;
-        mEntries = entries;
+        leContext = context;
+        listSongs = entries;
     }
 
     @Override
     public View getView(int position, View view, ViewGroup parent) {
         if(view==null){
-            LayoutInflater inflater = (LayoutInflater)mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            LayoutInflater inflater = (LayoutInflater)leContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             view = inflater.inflate(R.layout.listview_song,parent,false);
         }
 
-        final Song song = mEntries.get(position);
+        final Song song = listSongs.get(position);
 
         TextView textViewTitle = (TextView)view.findViewById(R.id.textViewSongTitle);
         textViewTitle.setText(song.getSongTitle() + " (" + song.getArtistName() + ")");
